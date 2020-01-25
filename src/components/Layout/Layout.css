@@ -17,3 +17,18 @@ body {
   background: var(--mainGrey);
   color: var(--mainBlack);
 }
+
+.code {
+  color: #f7ebec;
+  background: #1d1e2c;
+  display: inline-block;
+  padding: 1rem;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}
+
+.counter {
+  color: green;
+  margin: 3rem 0;
+  text-transform: capitalize;
+}
