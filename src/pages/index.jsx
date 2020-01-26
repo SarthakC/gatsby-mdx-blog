@@ -32,7 +32,7 @@ const query = graphql`
 
 export default () => {
   const {
-    allMdx: { totalCount, edges: posts },
+    allMdx: { edges: posts },
   } = useStaticQuery(query)
 
   return (
