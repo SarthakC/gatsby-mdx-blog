@@ -6,6 +6,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import styles from "./postTemplate.module.css"
 
 import Layout from "../../components/Layout/Layout"
+import ImageCredit from "../../components/ImageCredit/ImageCredit"
 
 export const query = graphql`
   query getPost($slug: String!) {
@@ -15,6 +16,7 @@ export const query = graphql`
         slug
         date(formatString: "MMMM Do, YYYY")
         author
+        imageAuthorURL
         image {
           childImageSharp {
             fluid {
@@ -35,6 +37,7 @@ const PostTemplate = ({
         title,
         date,
         author,
+        imageAuthorURL,
         image: {
           childImageSharp: { fluid: img },
         },
@@ -55,7 +58,13 @@ const PostTemplate = ({
             <span>by {author}</span> / <span>{date}</span>
           </h4>
         </div>
-        <Image fluid={img} />
+        <div className={styles.image}>
+          <Image fluid={img} />
+          <span>
+            Image by @ &nbsp;
+            <ImageCredit author={author} authorURL={imageAuthorURL} />
+          </span>
+        </div>
         <div className={styles.content}>
           <MDXRenderer>{body}</MDXRenderer>
         </div>
