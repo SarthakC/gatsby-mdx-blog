@@ -27,7 +27,7 @@ const PostCard = ({
         <div>
           <h2>{title}</h2>
           <h6>
-            <span> by {author}</span> /<span>{date}</span>
+            <span> by {author}</span> / <span>{date}</span>
           </h6>
           <p>{excerpt}</p>
           <Link to={slug} className={styles.link}>
